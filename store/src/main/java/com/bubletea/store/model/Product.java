@@ -1,88 +1,76 @@
 package com.bubletea.store.model;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "Recipes")
-public class Recipe {
+@Table(name = "Products")
+public class Product {
 
     @Id
-    @Column(name = "recipe_id")
-    private Integer recipeId;
+    @Column(name = "product_id")
+    private int productId;
+
+    private String name;
+
+    private Integer quantity;
+
+    @Column(name = "unit_of_measure")
+    private String unitOfMeasure;
+
+    private BigDecimal price;
 
     @ManyToOne
-    @JoinColumn(name = "item_id", referencedColumnName = "item_id")
-    private Storage item;
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-    @Column(name = "number_used")
-    private Integer numberUsed;
+    // Getters and setters
 
-    @Column(name = "description")
-    private String description;
-
-    @Column(name = "time_taken")
-    private Integer timeTaken;
-
-    @Column(name = "product_quantity")
-    private Integer productQuantity;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
-    private Product product;
-
-    public Integer getRecipeId() {
-        return recipeId;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setRecipeId(Integer recipeId) {
-        this.recipeId = recipeId;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
-    public Storage getItem() {
-        return item;
+    public String getName() {
+        return name;
     }
 
-    public void setItem(Storage item) {
-        this.item = item;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getNumberUsed() {
-        return numberUsed;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setNumberUsed(Integer numberUsed) {
-        this.numberUsed = numberUsed;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
-    public String getDescription() {
-        return description;
+    public String getUnitOfMeasure() {
+        return unitOfMeasure;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setUnitOfMeasure(String unitOfMeasure) {
+        this.unitOfMeasure = unitOfMeasure;
     }
 
-    public Integer getTimeTaken() {
-        return timeTaken;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setTimeTaken(Integer timeTaken) {
-        this.timeTaken = timeTaken;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
-    public Integer getProductQuantity() {
-        return productQuantity;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setProductQuantity(Integer productQuantity) {
-        this.productQuantity = productQuantity;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
