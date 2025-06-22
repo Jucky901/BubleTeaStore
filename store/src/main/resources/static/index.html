@@ -6,27 +6,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the Bubble Tea Store!</h1>
-    <p>Your favorite place for delicious bubble tea.</p>
+    <form action="/search" method="get">
+        <input class="search-bar" type="search" name="q" placeholder="Search">
+    </form>
 
-    <nav>
-        <a href="#">Store</a>
-        <a href="#">Bills</a>
-        <a href="#">Menu</a>
-    </nav>
-    <div class="main-content">
-        <div class="category">
-            <h2>Categories</h2>
-            <ul>
-                <li><a href="#">Trà</a></li>
-                <li><a href="#">Trà sữa</a></li>
-                <li><a href="#">Toppings</a></li>
-            </ul>
-        </div>
-        <div class="items-frame">
-            <h2>Sản Phẩm</h2>
-        </div>
+    <div class="submit-form">
+        <form  action="/submit" method="get">
+            <p>Number of products</p>
+            <p>Total</p>
+        </form>
     </div>
     
+
+    <div class="main-content">
+        <div id="category-panel">Categories
+            <ul id="categoryList"></ul>
+        </div>
+        <div id="item-panel">Items
+            <ul id="productList"></ul>
+        </div>
+    </div>
+
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script src="/js/categories.js"></script>
 </body>
 </html>

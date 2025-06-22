@@ -15,4 +15,9 @@ public class CategoryService {
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
+
+    public Category getCategoryById(Integer ID) {
+        return categoryRepository.findById(ID)
+            .orElseThrow(() -> new RuntimeException("Category not found"));
+    }
 }
