@@ -1,38 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Bubble Tea Store</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>POS Drink Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .category-menu {
+      width: 150px;
+      background-color: #f8f9fa;
+      height: 100%;
+    }
+    .product-card {
+      height: 120px;
+      background: linear-gradient(to bottom, #007bff, #3399ff);
+      border-radius: 8px;
+      color: white;
+      padding: 5px;
+      text-align: center;
+      position: relative;
+    }
+    .product-card .price {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2px 6px;
+      border-radius: 5px;
+    }
+    .blue-bar {
+      background-color: #007bff;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .search-bar {
+      border-radius: 20px;
+    }
+  </style>
 </head>
 <body>
-    <form action="/search" method="get">
-        <input class="search-bar" type="search" name="q" placeholder="Search">
-    </form>
+  <div class="container-fluid p-2">
+    <!-- Search -->
+    <input type="text" class="form-control search-bar mb-2" placeholder="Tìm kiếm">
 
-    <div class="submit-form">
-        <form  action="/submit" method="get">
-            <p>Number of products</p>
-            <p>Total</p>
-        </form>
+    <!-- Blue cart bar -->
+    <div class="blue-bar d-flex justify-content-between align-items-center mb-3">
+      <div class="d-flex align-items-center">
+        <span class="me-2">0</span>
+        <span class="border-start ps-2 text-white-50">Tổng tiền</span>
+      </div>
+      <div class="d-flex align-items-center">
+        <span class="me-2">0 ₫</span>
+        <span>&gt;</span>
+      </div>
     </div>
-    
 
-    <div class="main-content">
-        <div id="category-panel">Categories
-            <ul id="categoryList"></ul>
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-auto category-menu p-2">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a href="#" class="nav-link text-dark">HỒNG TRÀ</a></li>
+          <li class="nav-item"><a href="#" class="nav-link text-dark">LỤC TRÀ</a></li>
+          <li class="nav-item"><a href="#" class="nav-link text-dark">TRÀ SỮA</a></li>
+          <li class="nav-item"><a href="#" class="nav-link text-dark">TOPPING</a></li>
+        </ul>
+      </div>
+
+      <!-- Main grid -->
+      <div class="col">
+        <h6 class="mb-3">TRÀ SỮA</h6>
+        <div class="row g-2">
+          <!-- Product items -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+              <div class="price">12K</div>
+              <div>Hồng Trà Sữa(M)</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+              <div class="price">17K</div>
+              <div>Hồng Trà Sữa(L)</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+              <div class="price">12K</div>
+              <div>Lục Trà Sữa(M)</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+              <div class="price">17K</div>
+              <div>Lục Trà Sữa(L)</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+              <div class="price">15K</div>
+              <div>Trà Sữa Khoai Môn(M)</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+              <div class="price">20K</div>
+              <div>Trà Sữa Khoai Môn(L)</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+              <div class="price">15K</div>
+              <div>Hồng Trà Sữa Mật Ong(M)</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+              <div class="price">20K</div>
+              <div>Hồng Trà Sữa Mật Ong(L)</div>
+            </div>
+          </div>
         </div>
-        <div id="item-panel">Items
-            <ul id="productList"></ul>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <div>
-        <div></div>
-        <div></div>
-        <div></div>
+  <div class="position-fixed bottom-0 start-0 end-0 bg-light border-top">
+    <div class="d-flex justify-content-around py-2">
+        <button class="btn btn-light flex-fill border-end">Bán hàng</button>
+        <button class="btn btn-light flex-fill border-end">Khu vực</button>
+        <button class="btn btn-light flex-fill">Cài đặt</button>
     </div>
-
-    <script src="/js/categories.js"></script>
+  </div>
 </body>
 </html>
