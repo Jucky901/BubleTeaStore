@@ -61,6 +61,12 @@
 			<artifactId>mariadb-java-client</artifactId>
 			<version>3.3.2</version> <!-- Latest as of 2025 -->
 		</dependency>
+		<!--ThymeLeaf Dependency-->
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
