@@ -60,7 +60,10 @@
       <div class="col-auto category-menu p-2">
         <ul class="nav flex-column">
           <li class="nav-item" th:each="category : ${categoryList}">
-                <a class="nav-link text-dark" href="#" th:text="${category.name}">Category Name</a>
+                <a class="nav-link"
+                th:classappend="${category.categoryId} == ${activeCategoryID} ? 'text-primary fw-bold' : 'text-dark'"  
+                th:href="@{/store/{id}(id=${category.categoryId})}" 
+                th:text="${category.name}">Category Name</a>
           </li>
         </ul>
       </div>
@@ -70,52 +73,10 @@
         <h6 class="mb-3">TRÀ SỮA</h6>
         <div class="row g-2">
           <!-- Product items -->
-          <div class="col-6 col-md-4 col-lg-3">
+          <div class="col-6 col-md-4 col-lg-3" th:each="product : ${productList}">
             <div class="product-card">
-              <div class="price">12K</div>
-              <div>Hồng Trà Sữa(M)</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="product-card">
-              <div class="price">17K</div>
-              <div>Hồng Trà Sữa(L)</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="product-card">
-              <div class="price">12K</div>
-              <div>Lục Trà Sữa(M)</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="product-card">
-              <div class="price">17K</div>
-              <div>Lục Trà Sữa(L)</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="product-card">
-              <div class="price">15K</div>
-              <div>Trà Sữa Khoai Môn(M)</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="product-card">
-              <div class="price">20K</div>
-              <div>Trà Sữa Khoai Môn(L)</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="product-card">
-              <div class="price">15K</div>
-              <div>Hồng Trà Sữa Mật Ong(M)</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="product-card">
-              <div class="price">20K</div>
-              <div>Hồng Trà Sữa Mật Ong(L)</div>
+              <div class="price" th:text="${product.price}">Price</div>
+              <div th:text="${product.name}">Product Name</div>
             </div>
           </div>
         </div>
