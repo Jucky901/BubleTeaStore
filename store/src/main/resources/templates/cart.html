@@ -54,28 +54,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Black Tea (M)</td>
-                <td>6</td>
-                <td>15.000</td>
-                <td>90.000</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>--</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
-                <td>--</td>
-                </tr>
-            </tbody>
+                    <tr th:each="product, stat : ${productList}">
+                        <th th:text="${stat.index + 1}">1</th>
+                        <td th:text="${product.name}">Sample</td>
+                        <td th:text="${product.quantity}">1</td>
+                        <td th:text="${#numbers.formatDecimal(product.price, 1, 'COMMA', 3, 'POINT')}">0.000</td>
+                        <td th:text="${#numbers.formatDecimal(product.total, 1, 'COMMA', 3, 'POINT')}">90.000</td>
+                    </tr>
+              </tbody>
             </table>
 
             <!-- Buttons -->

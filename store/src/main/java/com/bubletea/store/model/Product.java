@@ -73,4 +73,10 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+
+    public BigDecimal getTotal() {
+    return price.multiply(BigDecimal.valueOf(quantity));
+}
+
 }
