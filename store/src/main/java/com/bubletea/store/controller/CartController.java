@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.bubletea.store.model.Bill;
 import com.bubletea.store.model.Product;
 import com.bubletea.store.service.ProductService;
 import com.bubletea.store.service.BillService;
@@ -44,5 +47,6 @@ public class CartController {
         return "cart";
 
     }
+
 
 }

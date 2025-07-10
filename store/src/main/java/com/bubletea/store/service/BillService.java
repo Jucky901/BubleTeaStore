@@ -13,5 +13,9 @@ public class BillService {
     public List<Bill> getAllBills(){
         return billRepository.findAll();
     }
+
+    public void saveBill(Bill bill) {
+        billRepository.save(bill);
+    }
     
 }
