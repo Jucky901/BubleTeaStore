@@ -17,7 +17,7 @@ public class Bill {
     @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name="isPaid")
+    @Column(name="is_paid")
     private boolean isPaid;
 
     public Integer getBillId() {
