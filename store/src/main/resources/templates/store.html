@@ -59,10 +59,10 @@
           <span class="me-2">0</span>
           <span class="border-start ps-2 text-white-50">Tổng tiền</span>
         </div>
-        <div class="d-flex align-items-center">
-          <span class="me-2">0 ₫</span>
+        <a href="/cart" class="text-white text-decoration-none d-flex align-items-center">
+          <span class="me-2" id="total-money">0 ₫</span>
           <span>&gt;</span>
-        </div>
+        </a>
       </div>
 
       <div class="row">
@@ -136,8 +136,17 @@
           const name = this.getAttribute("data-name");
           const price = parseInt(this.getAttribute("data-price"));
           // Create product object
-          const product = { id, name, price };
-          cartProducts.push(product);
+          const product = { id, name, price , quantity: 1};
+
+          //Look for duplicate
+          const isExist = cartProducts.find((p) => p.id === id);
+          if(isExist){
+            isExist.quantity +=1
+          }
+          else{
+            cartProducts.push(product)
+          }
+          
           totalMoney += price;
           // Save to localStorage
           localStorage.setItem("cartProducts", JSON.stringify(cartProducts));

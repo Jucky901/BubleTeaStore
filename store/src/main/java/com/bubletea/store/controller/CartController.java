@@ -29,26 +29,7 @@ public class CartController {
     @GetMapping("/cart")
     public String cart(Model model)
     {
-        Product product1 = new Product();
-
-        product1.setProductId(1);
-        product1.setName("test1");
-        product1.setQuantity(1);
-        product1.setPrice(new BigDecimal("10"));
-        
-        Product product2 = new Product();
-
-        product2.setProductId(2);
-        product2.setName("test2");
-        product2.setQuantity(5);
-        product2.setPrice(new BigDecimal("15"));
-
-        List <Product> productList = new ArrayList<>();
-        productList.add(product1);
-        productList.add(product2);
-        model.addAttribute("productList", productList);
         return "cart";
-
     }
 
     @PostMapping("/cart/submit")
